@@ -1,0 +1,31 @@
+@()
+
+<div class="ship-list">
+  <h4 class="logo text-left">SHIPS DAMAGE</h4>
+  <div class="ships_container table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Ship</th>
+          <th>Name</th>
+          <th>Frigate T1</th>
+          <th>Frigate T2</th>
+          <th>Cruiser T1</th>
+          <th>Cruiser T2</th>
+          <th>Carrier</th>
+          <th>Battleship</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="ship in ships">
+        <td><div class="ship_battle_icon ship_{{ ship.id }}"></div></td>
+        <td width="40px">{{ ship.name }}</td>
+        <td><ship-damage ship="ship.frigateT1"></ship-damage></td>
+        <td><ship-damage ship="ship.frigateT2"></ship-damage></td>
+        <td><ship-damage ship="ship.cruiserT1"></ship-damage></td>
+        <td><ship-damage ship="ship.cruiserT2"></ship-damage></td>
+        <td><ship-damage ship="ship.carrier"></ship-damage></td>
+        <td><ship-damage ship="ship.battleship"></ship-damage></td>
+      </tr>
+    </table>
+  </div>
+</div>

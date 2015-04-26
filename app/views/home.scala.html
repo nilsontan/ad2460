@@ -1,0 +1,31 @@
+@()
+
+<div class="home_container">
+    <a ui-sref="newReport">
+        <span class="glyphicon glyphicon-plus"></span> New Report
+    </a>
+    <h4 class="logo text-left">BATTLES</h4>
+    <div class="report_list table-responsive col-md-8 col-sm-12">
+        <table class="table table-condensed table-borderless">
+            <thead>
+                <tr>
+                    <th><h4>Name</h4></th>
+                    <th><h4>Attacker</h4></th>
+                    <th><h4>Defender</h4></th>
+                </tr>
+            </thead>
+            <tr ng-repeat="report in reports">
+                <td><div class="report-name">
+                    <a class="remove-sign" ng-click="deleteReport(report.id)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                    <a ui-sref="battleReport({ reportId: report.id })">{{report.name}}</a>
+                </div></td>
+                <td>{{report.atk}}</td>
+                <td>{{report.dfd}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

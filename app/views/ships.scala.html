@@ -1,0 +1,35 @@
+@()
+
+<div class="ship-list">
+  <h4 class="logo text-left">SHIPS</h4>
+  <div class="ships_container table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Ship</th>
+          <th>Name</th>
+          <th><ship-attack attack="att"></ship-attack></th>
+          <th><ship-attack attack="att"></ship-attack></th>
+          <th><ship-attack attack="att"></ship-attack></th>
+          <th><ship-defense defense="def"></ship-defense></th>
+          <th>pV</th>
+          <th>sV</th>
+          <th>tV</th>
+          <th>dV</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="ship in ships">
+        <td><div class="ship_battle_icon ship_{{ ship.id }}"></div></td>
+        <td width="40px">{{ ship.name }}</td>
+        <td><ship-attack attack="ship.primary"></ship-attack></td>
+        <td><ship-attack attack="ship.secondary"></ship-attack></td>
+        <td><ship-attack attack="ship.tertiary"></ship-attack></td>
+        <td><ship-defense defense="ship.defense"></ship-defense></td>
+        <td>{{ ship.priAtkValue }}</td>
+        <td>{{ ship.secAtkValue }}</td>
+        <td>{{ ship.terAtkValue }}</td>
+        <td>{{ ship.defenseValue }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

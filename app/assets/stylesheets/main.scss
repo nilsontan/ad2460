@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+@import
+
+  // Variables, Extends, Mixins
+"bootflat/global",
+
+  // Base
+"bootflat/typography",
+"bootflat/button",
+"bootflat/button_group",
+"bootflat/label_badge",
+"bootflat/tooltip",
+"bootflat/popover",
+"bootflat/progress",
+"bootflat/breadcrumb",
+"bootflat/pagination",
+"bootflat/pager",
+"bootflat/form",
+"bootflat/stepper",
+"bootflat/selecter",
+"bootflat/checkbox_radio",
+"bootflat/toggle",
+"bootflat/calendar",
+"bootflat/pricing",
+"bootflat/alert",
+"bootflat/tab",
+"bootflat/pill",
+//"bootflat/navbar",
+"bootflat/list",
+"bootflat/media_list",
+"bootflat/modal",
+"bootflat/well",
+"bootflat/thumbnail",
+"bootflat/jumbotron",
+"bootflat/panel",
+"bootflat/accordion",
+"bootflat/footer",
+"bootflat/timeline",
+"bootflat/dropdown",
+"ad2460",
+"report",
+"navigation";
+
+html {
+    height: 100%;
+}
+
+body {
+//    background-color: rgb(241, 242, 246);
+    font-family: 'myriad-pro', sans-serif;
+    background-color: rgb(10,13,16);
+    margin: 0;
+//    background-color: #e9e9e9;
+    height: 100%;
+  color: $lightgray-light;
+}
+
+.logo {
+    color: white;
+    font-family: $font-logo;
+    text-shadow: 2px 2px 6px #aaa;
+}
+
+.link-span {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+
+a {
+    cursor: pointer;
+}
+
+.main-content {
+//  height: 700px;
+//  width: 1200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.spacer {
+    height: 25%;
+}
+
+.main_bg {
+//  height: 700px;
+//  width: 1200px;
+  margin: 0 auto 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.starfield {
+  background: url(/vassets/images/mainbg.jpg);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -10;
+}
+
+.block-center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.home_container {
+  & .report_list {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    & h4 {
+      color: $mint-light;
+    }
+  }
+}
+
+.remove-sign {
+  color: $grapefruit-light;
+  display: none;
+
+  &:hover {
+    color: $grapefruit-dark;
+  }
+
+  @at-root  .report-name:hover #{&} {
+    display: inline;
+  }
+}
+
+.table-borderless tbody tr td, .table-borderless tbody tr th,
+.table-borderless thead tr th {
+  border: none;
+}
+
+.ships_container {
+  & .table>tbody>tr>td {
+    vertical-align: middle;
+  }
+
+  & .table-bordered,
+  .table-bordered > thead > tr > th,
+  .table-bordered > tbody > tr > th,
+  .table-bordered > tfoot > tr > th,
+  .table-bordered > thead > tr > td,
+  .table-bordered > tbody > tr > td,
+  .table-bordered > tfoot > tr > td {
+    border: solid 1px rgba(221, 221, 221, 0.5)
+  }
+
+  & .ship_battle_icon {
+    margin: 2px 4px;
+  }
+}
+
+.ship_attack {
+
+  margin: 0;
+
+  & li {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  & .a1 {
+    width: 20px;
+  }
+
+  & .a2 {
+    width: 26px;
+  }
+}
+
+.ship_defense {
+
+  margin: 0;
+
+  & li {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  & .d1 {
+    width: 32px;
+  }
+}
+

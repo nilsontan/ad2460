@@ -1,0 +1,41 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-large-width: 1280px;
+
+@mixin phone {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) and (max-width: #{$desktop-large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: #{$desktop-large-width}) {
+    @content;
+  }
+}
+
+$font-logo: "Orbitron";
+
+@font-face {
+  font-family: $font-logo;
+  //    src: url("/vassets/font/space age.ttf")
+}
+
+$font-main: "myriad-pro";
+
+@font-face {
+  font-family: $font-main;
+  src: url("/vassets/font/MyriadPro-regular.woff")
+}

@@ -1,0 +1,43 @@
+@()
+
+<div class="battle-report">
+    <h4 class="logo pull-left">BATTLE REPORT: {{report.name}}</h4>
+    <h4 class="logo pull-right">{{report.id}}</h4>
+    <div class="report_container">
+        <div class="row">
+            <report-tactics class="col-md-6" tactics="tacticAttacker"></report-tactics>
+            <report-tactics class="col-md-6" tactics="tacticDefender"></report-tactics>
+        </div>
+        <div class="row ship_battle_detail vertical-align" ng-repeat="turn in report.turns">
+            <div class="col-md-5 ship_battle_list">
+                <report-ship class="attacker" ships="turn.attacker.ships" ></report-ship>
+            </div>
+            <div class="col-md-1 text-center attacker ship_battle_summary">
+                <span class="ship_battle_commander_skill">{{ turn.attacker.skill }}</span>
+                <report-combatant combatant="turn.attacker"></report-combatant>
+            </div>
+            <div class="col-md-1 text-center defender ship_battle_summary">
+                <span class="ship_battle_commander_skill">{{ turn.defender.skill }}</span>
+                <report-combatant combatant="turn.defender"></report-combatant>
+            </div>
+            <div class="col-md-5 ship_battle_list">
+                <report-ship class="defender" ships="turn.defender.ships" ></report-ship>
+            </div>
+        </div>
+        <div class="row report_summary ship_battle_detail vertical-align">
+            <div class="col-md-6 ship_battle_list">
+                <report-summary class="attacker pull-right" ships="fleetAttacker"></report-summary>
+            </div>
+            <div class="col-md-6 ship_battle_list">
+                <report-summary class="defender" ships="fleetDefender"></report-summary>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="settings_tactical list-inline">
+                <li ng-repeat="commander in report.commanders">
+                    {{commander.name}}: {{commander.xp}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

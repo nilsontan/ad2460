@@ -1,0 +1,272 @@
+/**
+ * report - ships
+ * --------------------------------------------------
+ */
+.report_container {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+
+  & .ship_battle_summary {
+    padding: 0;
+    min-width: 80px;
+  }
+
+  & .ship_battle_commander_skill {
+    position: absolute;
+    top: -45px;
+    width: 96px;
+    left: 3px;
+  }
+
+  & .ship_battle_list {
+    padding: 2px;
+  }
+}
+
+.battle-report {
+  & h4.logo {
+    letter-spacing: 2px;
+  }
+}
+
+.settings_tactical {
+  text-align: center;
+  margin: 8px 0 4px;
+}
+
+
+/**
+  * ships
+  **/
+.ship_battle_detail {
+  position: relative;
+  margin-top: 5px;
+  padding-right: 10px;
+  left: 1px;
+  min-height: 125px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #DDF3FF;
+  font-family: $font-main, sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 10px 10px 0;
+  line-height: 20px;
+}
+
+.ship_battle_entry {
+  position: relative;
+  float: left;
+  margin: 2px 3px;
+  border-radius: 7px;
+  overflow: hidden;
+  height: 122px;
+  width: 88px;
+  z-index: 5;
+
+  @at-root .report_summary #{&} {
+    height: 140px;
+    margin: 2px 10px;
+  }
+
+  @at-root .attacker #{&} {
+    float: right;
+  }
+}
+
+.report_summary {
+  & .attacker {
+    padding-right: 20px;
+  }
+
+  & .defender {
+    padding-left: 20px;
+  }
+}
+
+.ship_battle_icon {
+  position: relative;
+  width: 41px;
+  height: 41px;
+  margin-top: 2px;
+  margin-left: 17px;
+  background-size: 41px 41px !important;
+  cursor: pointer;
+}
+
+@mixin ship_battle {
+  font-family: $font-main, sans-serif;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+//  cursor: pointer;
+}
+
+.ship_battle_count {
+  @include ship_battle;
+  color: white;
+  left: 16px;
+  top: 24px;
+}
+
+.ship_battle_died {
+  @include ship_battle;
+  color: $grapefruit-light;
+  left: 16px;
+  top: 0;
+}
+
+.ship_battle_damage_total {
+  @include ship_battle;
+  color: $grass-light;
+  font-size: 14px;
+  top: 44px;
+}
+
+.ship_battle_damage_primary {
+  @include ship_battle;
+  color: $bittersweet-light;
+  top: 62px;
+  font-size: 12px;
+}
+
+.ship_battle_damage_secondary {
+  @include ship_battle;
+  color: $aqua-light;
+  top: 80px;
+  font-size: 12px;
+}
+
+.ship_battle_damage_tertiary {
+  @include ship_battle;
+  color: $lavender-light;
+  top: 98px;
+  font-size: 12px;
+}
+
+.ship_battle_missiles {
+  @include ship_battle;
+  color: $lavender-light;
+  top: 76px;
+  font-size: 12px;
+}
+
+.ship_battle_average {
+  @include ship_battle;
+  color: $pinkrose-light;
+  top: 62px;
+  font-size: 12px;
+}
+
+.ship_battle_per_pt {
+  @include ship_battle;
+  color: $sunflower-light;
+  top: 116px;
+  font-size: 12px;
+}
+
+.ship_battle_shots_hit {
+  margin-left: 2px;
+  color: $mediumgray-light;
+}
+
+.ship_battle_shots_miss {
+  color: $mediumgray-dark;
+}
+
+@mixin ship_mini {
+  top: 0;
+  left: 0;
+}
+
+@for $i from 401 through 441 {
+  .ship_#{$i} {
+    background: url(/vassets/images/ships/100x100/#{$i}.png);
+  }
+  .defender .ship_#{$i} {
+    background: url(/vassets/images/ships/100x100/#{$i}_rev.png);
+  }
+}
+
+@for $i from 501 through 515 {
+  .ship_#{$i} {
+    background: url(/vassets/images/ships/100x100/#{$i}.png);
+  }
+  .defender .ship_#{$i} {
+    background: url(/vassets/images/ships/100x100/#{$i}_rev.png);
+  }
+}
+
+/**
+ * report - combatants
+ * --------------------------------------------------
+ */
+.combatant_battle_damage_entry {
+  position: relative;
+  left: 2px;
+  float: left;
+  /* border-radius: 7px; */
+  overflow: hidden;
+  height: 110px;
+  width: 100%;
+  /* box-shadow: 0 0 2px #fff; */
+  border: 1px solid $darkgray-dark;
+  border-right-width: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  z-index: 5;
+  text-indent: 16px;
+  line-height: 26px;
+
+  @at-root {
+
+    .defender #{&} {
+      left: -2px;
+      border-right-width: 1px;
+      border-left-width: 0;
+      border-radius: 0 4px 4px 0;
+      direction: rtl;
+    }
+  }
+}
+
+.combatant_battle_damage_total {
+  font-size: 18px;
+  color: $grass-light;
+  padding: 10px 0;
+  background-color: $darkgray-dark;
+}
+
+.combatant_battle_damage_primary {
+  color: $aqua-light;
+  position: relative;
+  top: 6px;
+}
+
+.combatant_battle_damage_secondary {
+  color: $bittersweet-light;
+}
+
+.combatant_battle_missile_accuracy {
+  color: $lavender-light;
+  position: relative;
+  top: 6px;
+}
+
+/**
+ * report - form
+ * --------------------------------------------------
+ */
+.report_form {
+//  color: black;
+  & .row {
+    margin-bottom: 10px;
+  }
+}
+

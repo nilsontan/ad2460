@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                                  com.nilson.controllers.Application.index(any = "none")
+GET        /views/*any                        com.nilson.controllers.Application.view(any)
+GET        /api/battles/report                com.nilson.controllers.Battles.all()
+POST       /api/battles/report/entry          com.nilson.controllers.Battles.entry()
+POST       /api/battles/report/delete         com.nilson.controllers.Battles.delete()
+GET        /api/battles/report/:report        com.nilson.controllers.Battles.report(report: String)
+GET        /api/battles/tacticalSettings      com.nilson.controllers.Battles.tacticalSettings()
+GET        /api/data/ships                    com.nilson.controllers.Data.ships()
+GET        /api/data/shipsDamage              com.nilson.controllers.Data.shipsDamage()
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /vassets/*file                     controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                      controllers.Assets.at(path="/public", file)
+GET        /webjars/*file                     controllers.WebJarAssets.at(file)
+
+GET        /*any                              com.nilson.controllers.Application.index(any)
+

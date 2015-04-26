@@ -1,0 +1,133 @@
+@()
+
+<h4>Create a new report</h4>
+<div class="report_form">
+    <form name="reportForm" ng-submit="newReport()" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="title">Title</label>
+                <input id="title" type="text" class="form-control" ng-model="title"
+                    placeholder="alphanumeric only please ..."
+                    required />
+            </div>
+            <div class="col-md-3">
+                <label for="battleId">Battle ID</label>
+                <input id="battleId" type="text" class="form-control" ng-model="battleId" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Attacker</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="atactic1">Target Priority</label>
+                        <select id="atactic1" class="form-control" ng-model="atactics[0]" required
+                        ng-options="t.name for t in tacticalOptions.targetPriority track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atactic2">Re-evaluate</label>
+                        <select id="atactic2" class="form-control" ng-model="atactics[1]" required
+                        ng-options="t.name for t in tacticalOptions.targetReEvaluate track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atactic5">Retreat at</label>
+                        <select id="atactic5" class="form-control" ng-model="atactics[4]" required
+                        ng-options="t.name for t in tacticalOptions.retreat1 track by t.key"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="atactic3">Fighters</label>
+                        <select id="atactic3" class="form-control" ng-model="atactics[2]" required
+                        ng-options="t.name for t in tacticalOptions.settingsFighter track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atactic4">Corvettes</label>
+                        <select id="atactic4" class="form-control" ng-model="atactics[3]" required
+                        ng-options="t.name for t in tacticalOptions.settingsCorvette track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atactic6">Of</label>
+                        <select id="atactic6" class="form-control" ng-model="atactics[5]" required
+                        ng-options="t.name for t in tacticalOptions.retreat2 track by t.key"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Defender</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="dtactic1">Target Priority</label>
+                        <select id="dtactic1" class="form-control" ng-model="dtactics[0]" required
+                        ng-options="t.name for t in tacticalOptions.targetPriority track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dtactic2">Re-evaluate</label>
+                        <select id="dtactic2" class="form-control" ng-model="dtactics[1]" required
+                        ng-options="t.name for t in tacticalOptions.targetReEvaluate track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dtactic5">Retreat at</label>
+                        <select id="dtactic5" class="form-control" ng-model="dtactics[4]" required
+                        ng-options="t.name for t in tacticalOptions.retreat1 track by t.key"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="dtactic3">Fighters</label>
+                        <select id="dtactic3" class="form-control" ng-model="dtactics[2]" required
+                        ng-options="t.name for t in tacticalOptions.settingsFighter track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dtactic4">Corvettes</label>
+                        <select id="dtactic4" class="form-control" ng-model="dtactics[3]" required
+                        ng-options="t.name for t in tacticalOptions.settingsCorvette track by t.key"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atactic6">Of</label>
+                        <select id="atactic6" class="form-control" ng-model="dtactics[5]" required
+                        ng-options="t.name for t in tacticalOptions.retreat2 track by t.key"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="attacker-name">Name</label>
+                <input id="attacker-name" class="form-control" ng-model="attackerName" required />
+            </div>
+            <div class="col-md-6">
+                <label for="defender">Name</label>
+                <input id="defender" class="form-control" ng-model="defenderName" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="attacker">Fleet Details</label>
+                <textarea id="attacker" class="form-control" ng-model="attackerDetails" rows="5"
+                    placeholder='<div style="transform: translate(250px, 0px);" class="battle_attacker_field"><div class="battle_playername"...'
+                    required></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="defender">Fleet Details</label>
+                <textarea id="defender" class="form-control" ng-model="defenderDetails" rows="5"
+                    placeholder='<div style="transform: translate(-250px, 0px);" class="battle_defender_field"><div class="battle_playername right" id="def_playername"...'
+                    required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="details">Combat Details</label>
+                <textarea id="details" class="form-control" ng-model="combatDetails" rows="10"
+                    placeholder='<div style="bottom: 0px;" class="combat_commentary_content" id="combat_commentary_container"...'
+                    required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @*<button class="btn btn-success btn-block" type="submit">Submit</button>*@
+                <button class="btn btn-success btn-block" type="submit" ng-disabled="reportForm.$invalid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

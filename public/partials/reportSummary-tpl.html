@@ -1,0 +1,44 @@
+<div class="ship_battle_entry" data-ng-repeat="ship in ships">
+  <div class="ship_battle_icon ship_{{ship.id}}"></div>
+  <div class="ship_battle_count"></div>
+  <div class="ship_battle_died" ng-if="ship.died > 0">{{ship.died}}</div>
+  <div class="ship_battle_damage_total">{{ship.damageTotal}}</div>
+  <div class="ship_battle_damage_primary">
+        <span ng-if="ship.damagePrimary > 0">
+            {{(ship.damagePrimary/ship.shotsPrimaryHit).toFixed(0)}}
+          <span class="ship_battle_shots_hit">
+            {{((ship.shotsPrimaryHit/(ship.shotsPrimaryHit + ship.shotsPrimaryMiss))*100).toFixed(1)}}%
+          </span>
+        </span>
+        <span ng-if="ship.damagePrimary <= 0">
+            -
+        </span>
+  </div>
+  <div class="ship_battle_damage_secondary">
+        <span ng-if="ship.damageSecondary > 0">
+            {{(ship.damageSecondary/ship.shotsSecondaryHit).toFixed(0)}}
+        </span>
+        <span ng-if="ship.damageSecondary <= 0">
+            -
+        </span>
+  </div>
+  <div class="ship_battle_damage_tertiary">
+    <span ng-if="ship.damageTertiary > 0">
+      {{ship.damageTertiary}}
+    </span>
+    <span ng-if="ship.damageTertiary <= 0">
+      -
+    </span>
+  </div>
+  <div class="ship_battle_per_pt">
+        <span ng-if="ship.damageTotal > 0">
+            {{((ship.damageTotal/(ship.intact))/ship.strength).toFixed(2)}}
+        </span>
+        <span ng-if="ship.damageTotal <= 0">
+            -
+        </span>
+  </div>
+</div>
+<!--<ul class="list-inline" data-ng-repeat="ship in turn.attacker.ships">-->
+<!--<li>{{ship.name}}({{ship.quantity}})</li>-->
+<!--</ul>-->
