@@ -4,7 +4,7 @@ logLevel := Level.Warn
 // The Typesafe repository
 resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/"
 
-resolvers += "GitHub repository" at "http://shaggyyeti.github.io/releases"
+resolvers += Resolver.url("GitHub repository", url("http://shaggyyeti.github.io/releases"))(Resolver.ivyStylePatterns)
 
 
 // Use the Play sbt plugin for Play projects
