@@ -54,7 +54,10 @@ object BattleReporter {
   implicit val battleReportWrites = Json.writes[BattleReport]
 
   def files = {
-    new File(battleFolder).listFiles().filter(_.isFile).toList
+    new File(battleFolder).listFiles()
+      .filter(_.isFile)
+      .filter(_.getName.endsWith("txt"))
+      .toList
   }
 
   def changeFileNames() = {
