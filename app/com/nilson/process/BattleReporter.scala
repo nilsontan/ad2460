@@ -14,7 +14,7 @@ import play.api.{Logger, Play}
  */
 object BattleReporter {
 
-  val sep = System.getProperty("path.separator")
+  val sep = System.getProperty("file.separator")
   val battleFolder = Play.configuration.getString("application.sourceFolder").get
 
   implicit val commanderFormat = Json.format[Commander]
