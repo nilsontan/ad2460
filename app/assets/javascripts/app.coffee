@@ -41,54 +41,57 @@ require([
     ($resource) ->
       $resource("api/battles/report/:id", {id:'@id'})
 
-  ad2460.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
-    $urlRouterProvider
-      .otherwise('/home')
+  ad2460.config [
+    '$stateProvider', '$urlRouterProvider', '$locationProvider'
+    ($stateProvider, $urlRouterProvider, $locationProvider) ->
+      $urlRouterProvider
+        .otherwise('/home')
 
-    $stateProvider
-      .state('home',
-        url: '/home'
-        templateUrl: '/views/home'
-        resolve:
-          battleReportsResource: 'BattleReportsResource'
-          battleReports: (battleReportsResource) ->
-            battleReportsResource.query().$promise
-        controller: 'HomeCtrl'
-      ).state('ships',
-        url: '/ships'
-        templateUrl: '/views/ships'
-        resolve:
-          shipsResource: 'ShipsResource'
-          ships: (ShipsResource) ->
-            ShipsResource.query().$promise
-        controller: 'ShipsCtrl'
-      ).state('shipsDamage',
-        url: '/shipsDamage'
-        templateUrl: '/views/shipsDamage'
-        resolve:
-          shipsDamageResource: 'ShipsDamageResource'
-          ships: (ShipsDamageResource) ->
-            ShipsDamageResource.query().$promise
-        controller: 'ShipsDamageCtrl'
-      ).state('battleReport',
-        url: '/battles/report/:reportId'
-        templateUrl: '/views/report'
-        resolve:
-          battleReportsResource: 'BattleReportsResource'
-          battleReport: (battleReportsResource, $stateParams) ->
-            battleReportsResource.get({id: $stateParams.reportId}).$promise
-        controller: 'BattleReportCtrl'
-      ).state('newReport',
-        url: '/newReport'
-        templateUrl: '/views/newReport'
-        resolve:
-          tacticsResource: 'TacticalResource'
-          tactics:  (tacticsResource) ->
-            tacticsResource.query().$promise
-        controller: 'NewReportCtrl'
-      )
+      $stateProvider
+        .state('home',
+          url: '/home'
+          templateUrl: '/views/home'
+          resolve:
+            battleReportsResource: 'BattleReportsResource'
+            battleReports: (battleReportsResource) ->
+              battleReportsResource.query().$promise
+          controller: 'HomeCtrl'
+        ).state('ships',
+          url: '/ships'
+          templateUrl: '/views/ships'
+          resolve:
+            shipsResource: 'ShipsResource'
+            ships: (ShipsResource) ->
+              ShipsResource.query().$promise
+          controller: 'ShipsCtrl'
+        ).state('shipsDamage',
+          url: '/shipsDamage'
+          templateUrl: '/views/shipsDamage'
+          resolve:
+            shipsDamageResource: 'ShipsDamageResource'
+            ships: (ShipsDamageResource) ->
+              ShipsDamageResource.query().$promise
+          controller: 'ShipsDamageCtrl'
+        ).state('battleReport',
+          url: '/battles/report/:reportId'
+          templateUrl: '/views/report'
+          resolve:
+            battleReportsResource: 'BattleReportsResource'
+            battleReport: (battleReportsResource, $stateParams) ->
+              battleReportsResource.get({id: $stateParams.reportId}).$promise
+          controller: 'BattleReportCtrl'
+        ).state('newReport',
+          url: '/newReport'
+          templateUrl: '/views/newReport'
+          resolve:
+            tacticsResource: 'TacticalResource'
+            tactics:  (tacticsResource) ->
+              tacticsResource.query().$promise
+          controller: 'NewReportCtrl'
+        )
 
-    $locationProvider.html5Mode(true).hashPrefix('!')
+      $locationProvider.html5Mode(true).hashPrefix('!')
+    ]
 
   angular.bootstrap(document, ['ad2460'])
 )
