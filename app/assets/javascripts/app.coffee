@@ -25,21 +25,29 @@ require([
 
   ad2460 = angular.module('ad2460', ['ngResource', 'ui.bootstrap', 'ui.router', 'web'])
 
-  ad2460.factory 'ShipsDamageResource',
+  ad2460.factory 'ShipsDamageResource', [
+    '$resource'
     ($resource) ->
       $resource("/api/data/shipsDamage")
+  ]
 
-  ad2460.factory 'ShipsResource',
+  ad2460.factory 'ShipsResource', [
+    '$resource'
     ($resource) ->
       $resource("/api/data/ships")
+  ]
 
-  ad2460.factory 'TacticalResource',
+  ad2460.factory 'TacticalResource', [
+    '$resource'
     ($resource) ->
       $resource("api/battles/tacticalSettings")
+  ]
 
-  ad2460.factory 'BattleReportsResource',
+  ad2460.factory 'BattleReportsResource', [
+    '$resource'
     ($resource) ->
       $resource("api/battles/report/:id", {id:'@id'})
+  ]
 
   ad2460.config [
     '$stateProvider', '$urlRouterProvider', '$locationProvider'
