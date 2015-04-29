@@ -98,7 +98,7 @@ require([
           controller: 'NewReportCtrl'
         )
 
-      $locationProvider.html5Mode(true).hashPrefix('!')
+      $locationProvider.html5Mode({ enabled: true, requireBase: false }).hashPrefix('!')
     ]
 
   angular.bootstrap(document, ['ad2460'])
